@@ -42,7 +42,7 @@ const User = (props) => {
   }
   return (
     <div style={styles.container}>
-      
+
       <div style={styles.dataUser}>
         <img src={images.banner} height={85} width={300} alt='error' style={styles.containerImageUser} />
         <div style={styles.textTotalTickets}>Tickets: {totalTickets}</div>
@@ -51,7 +51,7 @@ const User = (props) => {
 
       <Form onSubmit={buyTokensFunction} className="col-6  mb-5" >
         <Form.Group className="mb-3 col-12" controlId="formBasicEmail">
-          <Form.Label style={{fontWeight:"bold"}}>Buy Tokens</Form.Label>
+          <Form.Label style={{ fontWeight: "bold" }}>Buy Tokens</Form.Label>
           <Form.Control type="number" placeholder="Quantity" />
         </Form.Group>
         <Button variant="success" type="submit">

@@ -23,14 +23,15 @@ const Admin = (props) => {
     <div style={styles.container}>
       <img src={images.logo} height={140} width={140} alt='ERROR' />
 
-      <div style={styles.containerButton}>
-        <Button variant="primary" onClick={getWinnerStatus} style={styles.containerButton}>Get Winner</Button>
+      <div >
       </div>
 
       <div style={styles.containerText}>
-        <div>Balance Contract: {balanceEtherContract} ETH</div>
+        <div >Balance Contract: {balanceEtherContract} ETH</div>
         <div>Tokens Contract: {balanceTokenContract} LR</div>
         <div>Total reward: {amountBalanceReward} LR</div>
+        <Button onClick={getWinnerStatus} style={styles.containerButton}>Get Winner</Button>
+
 
       </div>
     </div>

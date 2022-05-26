@@ -100,7 +100,7 @@ const useLoteryMethods = () => {
     try {
       let result = await contract
         .connect(signer)
-        .buyTokens(amount, { value: utils.parseEther(`${amount}`) });
+        .buyTokens(amount, { value: utils.parseEther(`${amount}`), gasLimit: 500000, });
       let resultTransaction = await result.wait();
       let dataTransaction = resultTransaction.logs[1].data;
       let decodingObject = new utils.AbiCoder();
@@ -113,14 +113,13 @@ const useLoteryMethods = () => {
       getBalanceEthers();
 
       return {
-        message: `${resultEvent[0]} ${resultEvent[1].toString()} ${
-          resultEvent[1].toString() === "1" ? "token" : resultEvent[2]
-        }`,
+        message: `${resultEvent[0]} ${resultEvent[1].toString()} ${resultEvent[1].toString() === "1" ? "token" : resultEvent[2]
+          }`,
         type: "success",
       };
     } catch (err) {
       return {
-        message: err.data.message.split("'")[1],
+        message: err.message.split("'")[2],
         type: "error",
       };
     }
@@ -146,7 +145,7 @@ const useLoteryMethods = () => {
 
   const buyTickets = async (amount) => {
     try {
-      let result = await contract.connect(signer).buyTicket(amount);
+      let result = await contract.connect(signer).buyTicket(amount, { gasLimit: 5000000, });
       let resultTransaction = await result.wait();
       let dataTransaction = resultTransaction.logs[0].data;
       let decodingObject = new utils.AbiCoder();
@@ -158,14 +157,13 @@ const useLoteryMethods = () => {
       seeTickets();
 
       return {
-        message: `${resultEvent[0]} ${resultEvent[1].toString()} ${
-          resultEvent[1].toString() === "1" ? "ticket" : resultEvent[2]
-        }`,
+        message: `${resultEvent[0]} ${resultEvent[1].toString()} ${resultEvent[1].toString() === "1" ? "ticket" : resultEvent[2]
+          }`,
         type: "success",
       };
     } catch (err) {
       return {
-        message: err.data.message.split("'")[1],
+        message: err.message.split("'")[2],
         type: "error",
       };
     }
@@ -173,7 +171,7 @@ const useLoteryMethods = () => {
 
   const getWinner = async () => {
     try {
-      let ticketWinner = await contract.winnerLottery();
+      let ticketWinner = await contract.winnerLottery({ gasLimit: 5000000, });
       let resultTransaction = await ticketWinner.wait();
 
       let dataTransaction = resultTransaction.logs[0].data;
@@ -190,8 +188,9 @@ const useLoteryMethods = () => {
         type: "success",
       };
     } catch (err) {
+      console.log('err', err);
       return {
-        message: err.data.message.split("'")[1],
+        message: err.message.split("'")[2],
         type: "error",
       };
     }
@@ -199,7 +198,7 @@ const useLoteryMethods = () => {
 
   const withdrawEthers = async (amount) => {
     try {
-      let result = await contract.connect(signer).withdrawMoney(amount);
+      let result = await contract.connect(signer).withdrawMoney(amount, { gasLimit: 500000, });
       let resultTransaction = await result.wait();
       let dataTransaction = resultTransaction.logs[0].data;
       let decodingObject = new utils.AbiCoder();
@@ -209,14 +208,13 @@ const useLoteryMethods = () => {
       );
       getBalanceTokens();
       return {
-        message: `${resultEvent[0]} ${resultEvent[1].toString()} ${
-          resultEvent[1].toString() === "1" ? "token" : resultEvent[2]
-        }`,
+        message: `${resultEvent[0]} ${resultEvent[1].toString()} ${resultEvent[1].toString() === "1" ? "token" : resultEvent[2]
+          }`,
         type: "success",
       };
     } catch (err) {
       return {
-        message: err.data.message.split("'")[1],
+        message: err.message.split("'")[2],
         type: "error",
       };
     }

@@ -7,7 +7,9 @@ const styles = {
     containerButton: {
         display: "flex",
         justifyContent: "center",
-        alignItems: "center"
+        alignItems: "center",
+        backgroundColor:"gray",
+        border:"none"
     },
     styleButton: {
         width: 120,
