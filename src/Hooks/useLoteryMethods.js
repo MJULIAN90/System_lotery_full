@@ -4,16 +4,16 @@ import Loteria from "../artifacts/contracts/Loteria.sol/Loteria.json";
 import { formatEther, formatEtherAdmin } from "../Utils";
 
 const useLoteryMethods = () => {
-  const [balanceEtherContract, setBalanceEtherContract] = useState(1);
-  const [balanceEther, setBalanceEther] = useState(1);
-  const [balanceTokenContract, setBalanceTokenContract] = useState(1);
-  const [balanceToken, setBalanceToken] = useState(1);
-  const [amountBalanceReward, setAmountBalanceReward] = useState(1);
-  const [totalTickets, setTotalTickets] = useState(1);
+  const [balanceEtherContract, setBalanceEtherContract] = useState(null);
+  const [balanceEther, setBalanceEther] = useState(null);
+  const [balanceTokenContract, setBalanceTokenContract] = useState(null);
+  const [balanceToken, setBalanceToken] = useState(null);
+  const [amountBalanceReward, setAmountBalanceReward] = useState(null);
+  const [totalTickets, setTotalTickets] = useState(null);
   const [isOwner, setIsOwner] = useState(false);
   const [tickets, setTickets] = useState([]);
   const [winner, setWinner] = useState(undefined);
-  const [bringWinnerState, setBringWinnerState] = useState(1);
+  const [bringWinnerState, setBringWinnerState] = useState(null);
   const [addressAccount, setAddressAccount] = useState("");
   const [totalReward, setTotalReward] = useState(0)
 

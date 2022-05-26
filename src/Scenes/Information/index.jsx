@@ -6,13 +6,9 @@ import Ticket from "../../Components/Ticket";
 const Information = (props) => {
   const {
     bringWinnerState,
-    totalReward
-  } = props;
+    } = props;
 
   return <div style={{display:"flex", justifyContent: "center", alignItems: "center",  height:"100%", flexDirection:"column", position:"relative" }}>
-
-    <div style={{position:"absolute", top:50, fontWeight:"bold"}}> Total available reward {totalReward}</div>
-    
     {bringWinnerState === 0 ?
     <div style={{marginTop: -60, marginBottom:30}}>
     <Ticket sizeW={250} mleft={-180} sizeH={150} nameTicket={"Waiting for a winner"} mlname={70} mtname={75} sizeText={20} /> 
