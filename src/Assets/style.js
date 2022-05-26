@@ -15,6 +15,15 @@ const home = {
         margin: "1%",
         textAlign: "center",
     },
+    containerFooter:{
+        backgroundColor: "#198754", 
+        height: 100, 
+        position: 'absolute', 
+        bottom: 0, 
+        left: 0, 
+        width: "100%", 
+        boxShadow: '-10px -6px 5px black'
+    }
 };
 
 export { home };

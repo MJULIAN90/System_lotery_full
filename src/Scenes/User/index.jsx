@@ -2,6 +2,7 @@ import React from "react";
 import { Form, Button } from "react-bootstrap";
 import useAlerts from "../../Hooks/useAlerts";
 import { images } from '../../Assets'
+import styles from "./styles";
 
 const User = (props) => {
   const {
@@ -40,12 +41,11 @@ const User = (props) => {
     alert(event.message, event.type);
   }
   return (
-
-    <div style={{ display: "flex", flexDirection: "column", alignItems: "center",marginBottom:20, marginTop:20 }}>
+    <div style={styles.container}>
       
-      <div style={{display:"flex", margin: 10, marginLeft:10, fontWeight:"bold", fontSize:16, marginBottom:40,  position:"relative"}}>
-        <img src={images.banner} height={85} width={300} alt='error' style={{ position: "absolute", left: -65, top: -25, zIndex:-1, }} />
-        <div style={{ marginRight: 20, color: "#522107"}}>Tickets: {totalTickets}</div>
+      <div style={styles.dataUser}>
+        <img src={images.banner} height={85} width={300} alt='error' style={styles.containerImageUser} />
+        <div style={styles.textTotalTickets}>Tickets: {totalTickets}</div>
         <div style={{ color: "#522107" }}>Tokens: {balanceToken}</div>
       </div>
 

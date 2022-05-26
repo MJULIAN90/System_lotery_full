@@ -2,9 +2,10 @@ import React from 'react';
 import { Button } from "react-bootstrap";
 import useAlerts from "../../Hooks/useAlerts";
 import { images } from '../../Assets'
+import styles from './styles';
 
 const Admin = (props) => {
-  const { 
+  const {
     balanceEtherContract,
     balanceTokenContract,
     amountBalanceReward,
@@ -19,23 +20,19 @@ const Admin = (props) => {
   }
 
   return (
-    <div style={{gridTemplateColumns: "1fr 2fr 1fr",display: "grid",  width: "100%"}}>
-      <img src={images.logo} height={140} width={140} alt='ERROR'/>
-      <div style={{display:"flex", justifyContent:"center", alignItems:"center"}}>
+    <div style={styles.container}>
+      <img src={images.logo} height={140} width={140} alt='ERROR' />
 
-        <Button variant="primary" onClick={getWinnerStatus} style={{ width: 120, height: 40, marginTop: 20, 
-        
-        }}>Get Winner</Button>
+      <div style={styles.containerButton}>
+        <Button variant="primary" onClick={getWinnerStatus} style={styles.containerButton}>Get Winner</Button>
       </div>
-      
 
-      <div style={{ fontSize: 12, display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center"}}>
+      <div style={styles.containerText}>
         <div>Balance Contract: {balanceEtherContract} ETH</div>
         <div>Tokens Contract: {balanceTokenContract} LR</div>
         <div>Total reward: {amountBalanceReward} LR</div>
 
       </div>
-
     </div>
   )
 }
