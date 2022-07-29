@@ -1,4 +1,4 @@
-# system_lotery_full
+# SYSTEM LOTERY
 
 SystemLotery is a platform on the blockchain using solidity as a technology to develop smart contracts, react and ethers js for the graphical interface and MetaMask as a provider for the communication of the JSON-RPC protocol.
 
